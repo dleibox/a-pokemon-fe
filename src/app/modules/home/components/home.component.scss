@@ -1,0 +1,7 @@
+.a-card {
+    .a-card-header {
+        ::ng-deep .mat-card-header-text {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.a-container {
+    height: 100%;
+
+    .a-toolbar {
+        position: fixed;
+        z-index: 2;
+    }
+
+    .a-spacer {
+        flex: 1;
+    }
+
+    .a-sidenav-container {
+        height: 100%;
+    }
+}

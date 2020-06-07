@@ -1,0 +1,29 @@
+<div class="a-pokemon-container">
+    <mat-card class="a-card" *ngIf="searchEnabled">
+        <mat-card-content>
+            <mat-form-field class="a-search">
+                <input matInput type="text" placeholder="Search..." maxlength="50" [formControl]="search" />
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+    <div class="a-card-container" *ngIf="pokemons$ | async as pokemons">
+        <mat-paginator [length]="pokemons.count" [pageIndex]="pageIndex" [pageSize]="pageSize" (page)="nextPage($event)"></mat-paginator>
+        <mat-card class="a-card a-card-tile" *ngFor="let p of pokemons.data">
+            <mat-card-header>
+                <!-- <div mat-card-avatar></div> -->
+                <mat-card-title>
+                    <a mat-button routerLink="{{ p.name }}">
+                        <span matBadge="" matBadgeOverlap="false" [ngStyle]="{ 'text-transform': 'capitalize' }">{{ p.name }}</span>
+                    </a>
+                </mat-card-title>
+            </mat-card-header>
+            <div class="a-card-img">
+                <img mat-card-image [attr.src]="p.url | toimage" alt="" />
+            </div>
+            <!-- <mat-card-content>
+                <p></p>
+            </mat-card-content> -->
+        </mat-card>
+        <mat-paginator [length]="pokemons.count" [pageIndex]="pageIndex" [pageSize]="pageSize" (page)="nextPage($event)"></mat-paginator>
+    </div>
+</div>

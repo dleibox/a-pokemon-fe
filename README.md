@@ -1,6 +1,20 @@
-# APokemonFe
+# A Pokémon Angular App
+
+[Demo](http://pokemon.dlei.ca)
+
+This is a demo application for Pokémon game. It’s using Angular 9, Angular Material, NgRx/Redux. All data come from https://pokeapi.co/.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+
+## What's included:
+
+- Angular 9+ & Typescript
+- Angular Material & SCSS
+- Responsive layout
+- NgRx (Store, State, Action, Reducer, Effect, Entity Adapter)
+- CI/CD (GitHub/Bitbucket, CircleCI pipeline, Docker build, Test, SSH Deployment, Bash Script)
+- Nginx
+- Vultr Ubuntu VPS, Heroku cloud containers
 
 ## Development server
 

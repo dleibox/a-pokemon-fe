@@ -1,0 +1,6 @@
+<mat-nav-list>
+  <a href="{{i.url}}" mat-list-item (click)="openLink($event)" *ngFor="let i of data.items">
+    <span mat-line>{{i.title}}</span>
+    <span mat-line>{{i.content}}</span>
+  </a>
+</mat-nav-list>

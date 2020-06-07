@@ -1,0 +1,38 @@
+.a-pokemon-container {
+    padding: 16px;
+
+    .a-search {
+        width: 100%;
+    }
+
+    mat-paginator {
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    .a-card {
+        margin-bottom: 16px;
+    }
+
+    .a-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        mat-card {
+            &.a-card {
+                &.a-card-tile {
+                    max-width: 380px;
+
+                    ::ng-deep .mat-card-header-text {
+                        margin: auto;
+                    }
+
+                    .a-card-img {
+                        padding: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
