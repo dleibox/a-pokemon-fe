@@ -9,7 +9,7 @@ import { AHomeComponent } from './components/home.component';
 
 @NgModule({
     declarations: [AHomeComponent],
-    imports: [ASharedModule, AHomeRoutingModule, StoreModule.forFeature(fromPokemon.featureKey, fromPokemon.pokemonReducer), EffectsModule.forFeature([APokemonEffects])],
+    imports: [ASharedModule, AHomeRoutingModule, StoreModule.forFeature('pokemon', fromPokemon.pokemonReducer), EffectsModule.forFeature([APokemonEffects])],
     exports: [],
 })
 export class AHomeModule {}

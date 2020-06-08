@@ -1,16 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription, forkJoin } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../../core/service/data.service';
+import { Observable, Subscription } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
+import { DataService } from '../../core/service/data.service';
+import { PokemonAbilityDetail, Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
     templateUrl: './pokemon.component.html',
     styleUrls: ['./pokemon.component.scss'],
 })
 export class APokemonComponent implements OnInit, OnDestroy {
-    pokemon$: Observable<any>;
-    abilities$: Observable<any>;
+    pokemon$: Observable<Pokemon>;
+    abilities$: Observable<PokemonAbilityDetail[]>;
 
     sub: Subscription;
 
@@ -19,9 +20,9 @@ export class APokemonComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.sub = this.route.params.subscribe((params) => {
             this.pokemon$ = this.svc.getPokemon(params['idorname']).pipe(
-                tap((data) => {
+                tap((data: Pokemon) => {
                     this.abilities$ = this.svc.getAbilities(data.abilities.map((a) => a.ability.name)).pipe(
-                        map((abilities: any) => {
+                        map((abilities: PokemonAbilityDetail[]) => {
                             return abilities.map((a) => {
                                 a.names = a.names.filter((n) => n.language.name === 'en');
                                 a.effect_entries = a.effect_entries.filter((e) => e.language.name === 'en');

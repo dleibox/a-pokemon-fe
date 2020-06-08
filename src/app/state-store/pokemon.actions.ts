@@ -1,5 +1,7 @@
 import { createAction, props } from '@ngrx/store';
+import { PokemonResponse } from '../models/pokemon.model';
 
-export const loadPokemons = createAction('[Load Pokemons] Load Pokemons', props<{ offset: number }>());
-export const loadPokemonsDone = createAction('[Load Pokemons] Load Pokemons Done', props<{ data: any }>());
-export const loadPokemonsError = createAction('[Load Pokemons] Load Pokemons Error');
+export const loadAllPokemons = createAction('[Load Pokemons] Load All Pokemons');
+export const loadPokemonPage = createAction('[Load Pokemons] Load Pokemons');
+export const loadPokemonPageDone = createAction('[Load Pokemons] Load Pokemons Done', props<{ offset: number; data: PokemonResponse }>());
+export const loadPokemonPageError = createAction('[Load Pokemons] Load Pokemons Error');

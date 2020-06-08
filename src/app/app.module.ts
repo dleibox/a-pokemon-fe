@@ -9,9 +9,19 @@ import { ACoreModule } from './modules/core/core.module';
 import { ASharedModule } from './modules/shared/shared.module';
 import { AppComponent } from './app.component';
 
+import { contextReducer } from './state-store/context.reducer';
+
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, ACoreModule.forRoot(), ASharedModule, StoreModule.forRoot({}), EffectsModule.forRoot([])],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        ACoreModule.forRoot(),
+        ASharedModule,
+        StoreModule.forRoot({ context: contextReducer }),
+        EffectsModule.forRoot([]),
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

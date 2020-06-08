@@ -4,7 +4,7 @@
             <mat-card-header>
                 <!-- <div mat-card-avatar></div> -->
                 <mat-card-title>
-                    <span matBadge="" matBadgeOverlap="false" [ngStyle]="{ 'text-transform': 'capitalize' }">{{ pokemon.name }}</span>
+                    <span matBadge="{{ pokemon.id }}" matBadgeOverlap="false" [ngStyle]="{ 'text-transform': 'capitalize' }">{{ pokemon.name }}</span>
                 </mat-card-title>
                 <mat-card-subtitle>
                     <mat-chip-list>
