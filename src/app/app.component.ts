@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppBottomsheetComponent } from './modules/shared/components/app-bottomsheet.component';
 import { setPageSize, setPageIndex, toggleSearch } from './state-store/context.actions';
 import { AContextState } from './state-store';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
 
     mobileQuery: MediaQueryList;
 
-    constructor(media: MediaMatcher, private bottomSheet: MatBottomSheet, private store: Store<AContextState>) {
+    constructor(media: MediaMatcher, private bottomSheet: MatBottomSheet, private store: Store<AContextState>, private router: Router) {
         console.log('[ AppComponent ] constructor');
 
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -26,7 +27,9 @@ export class AppComponent {
     }
 
     toggleSearch() {
-        this.store.dispatch(toggleSearch());
+        this.router.navigate(['/pokemon']).then((_) => {
+            this.store.dispatch(toggleSearch({ show: _ === true ? true : undefined }));
+        });
     }
 
     openSheet() {

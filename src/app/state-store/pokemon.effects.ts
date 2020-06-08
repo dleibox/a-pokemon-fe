@@ -18,7 +18,7 @@ export class APokemonEffects {
         this.actions$.pipe(
             ofType(loadAllPokemons.type),
             switchMap(() => {
-                console.log(`[ effect ] loadAllPokemons`);
+                console.log(`[   effect ] loadAllPokemons`);
                 return this.svc.getPokemons(0, 1000).pipe(
                     map((resp: PokemonResponse) => {
                         return loadPokemonPageDone({ offset: 0, data: resp });
@@ -34,7 +34,7 @@ export class APokemonEffects {
             ofType(loadPokemonPage.type),
             switchMap(() => this.store.select(selectContext)),
             switchMap((ctx) => {
-                console.log(`[ effect ] loadPokemonPage`);
+                console.log(`[   effect ] loadPokemonPage`);
                 return this.store.pipe(
                     select(selectPokemonByOffset, ctx.offset),
                     filter((_) => !_),

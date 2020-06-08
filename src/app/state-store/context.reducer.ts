@@ -23,19 +23,19 @@ export function contextReducer(stateData, action) {
     return createReducer(
         initialContextState,
         on(setPageSize, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             return { ...state, pageSize: action.pageSize, offset: action.pageSize * state.pageIndex };
         }),
         on(setPageIndex, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             return { ...state, pageIndex: action.pageIndex, offset: action.pageIndex * state.pageSize };
         }),
         on(toggleSearch, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
-            return { ...state, search: state.search === undefined ? '' : undefined };
+            console.log(`[  reducer ] ${action.type}`);
+            return { ...state, search: action.show === true ? state.search || '' : state.search === undefined ? '' : undefined };
         }),
         on(setSearch, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             return { ...state, search: action.search };
         })
     )(stateData, action);

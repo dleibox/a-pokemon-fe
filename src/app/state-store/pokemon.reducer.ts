@@ -24,15 +24,15 @@ export function pokemonReducer(stateData, action) {
     return createReducer(
         initialState,
         on(loadAllPokemons, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             return { ...state, loaded: false };
         }),
         on(loadPokemonPage, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             return { ...state, loaded: false };
         }),
         on(loadPokemonPageDone, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             const offset = action.offset;
             const data = [...state.data];
             if (data.length <= offset) {
@@ -43,7 +43,7 @@ export function pokemonReducer(stateData, action) {
             return { ...state, loaded: true, error: null, count: action.data.count, offset, data };
         }),
         on(loadPokemonPageError, (state) => {
-            console.log(`[ reducer ] ${action.type}`);
+            console.log(`[  reducer ] ${action.type}`);
             return { ...state, loaded: true, count: 0, data: null, error: 'Error' };
         })
     )(stateData, action);
