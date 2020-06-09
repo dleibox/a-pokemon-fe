@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, share } from 'rxjs/operators';
 import { DataService } from '../../core/service/data.service';
 import { PokemonAbilityDetail, Pokemon } from 'src/app/models/pokemon.model';
 
@@ -29,7 +29,8 @@ export class APokemonComponent implements OnInit, OnDestroy {
                                 a.flavor_text_entries = a.flavor_text_entries.filter((f) => f.language.name === 'en');
                                 return a;
                             });
-                        })
+                        }),
+                        share()
                     );
                 })
             );
