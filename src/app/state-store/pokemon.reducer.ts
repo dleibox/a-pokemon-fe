@@ -34,7 +34,7 @@ export function pokemonReducer(stateData, action) {
         on(loadPokemonPageDone, (state) => {
             console.log(`[  reducer ] ${action.type}`);
             const offset = action.offset;
-            const data = [...state.data];
+            const data = !state.data ? [] : [...state.data];
             if (data.length <= offset) {
                 action.data.results.forEach((v, i) => {
                     data[offset + i] = v;

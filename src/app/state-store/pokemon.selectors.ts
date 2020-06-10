@@ -8,7 +8,7 @@ export const selectPokemonsLoaded = createSelector(selectPokemonFeature, (data) 
 
 export const selectPokemons = createSelector(selectContextFeature, selectPokemonFeature, (ctx, state) => {
     console.log(`[ selector ] selectPokemons`);
-    const data = state.data.filter((v) => !ctx.search || v.name.toLocaleLowerCase().includes(ctx.search.toLocaleLowerCase()));
+    const data = !state.data ? [] : state.data.filter((v) => !ctx.search || v.name.toLocaleLowerCase().includes(ctx.search.toLocaleLowerCase()));
     return {
         count: data.length,
         data: data.filter((v, i) => i >= ctx.offset && i < ctx.offset + ctx.pageSize),
