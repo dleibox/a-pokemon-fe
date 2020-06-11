@@ -11,6 +11,6 @@ export class AppErrorHandler implements ErrorHandler {
 
     handleError(error: Error | any): void {
         console.log(`%c[    error ][ handler ] ${error.stack}`, 'color: orangered');
-        this.errService.showError(error.stack);
+        this.errService.showError(error.message);
     }
 }

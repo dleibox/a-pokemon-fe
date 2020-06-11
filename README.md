@@ -10,8 +10,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - Angular 9+ & Typescript
 - Angular Material & SCSS
+- NgRx (State, Action, Reducer, Effect, Entity Adapter, Selector)
 - Responsive layout
-- NgRx (Store, State, Action, Reducer, Effect, Entity Adapter)
 - CI/CD (GitHub/Bitbucket, CircleCI pipeline, Docker build, Test, SSH Deployment, Bash Script)
 - Nginx
 - Vultr Ubuntu VPS, Heroku cloud containers
