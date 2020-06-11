@@ -4,11 +4,13 @@ import { Observable, Subscription } from 'rxjs';
 import { tap, map, share } from 'rxjs/operators';
 import { DataService } from '../../core/service/data.service';
 import { PokemonAbilityDetail, Pokemon } from 'src/app/models/pokemon.model';
+import { Log } from '../../core/decorators/app-decorators';
 
 @Component({
     templateUrl: './pokemon.component.html',
     styleUrls: ['./pokemon.component.scss'],
 })
+@Log()
 export class APokemonComponent implements OnInit, OnDestroy {
     pokemon$: Observable<Pokemon>;
     abilities$: Observable<PokemonAbilityDetail[]>;

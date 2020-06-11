@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Log } from './modules/core/decorators/app-decorators';
 
 const routes: Routes = [
     {
@@ -16,4 +17,5 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
 })
+@Log()
 export class AppRoutingModule {}

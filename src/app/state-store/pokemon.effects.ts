@@ -4,13 +4,16 @@ import { Store, select } from '@ngrx/store';
 import { of } from 'rxjs';
 import { switchMap, catchError, map, filter } from 'rxjs/operators';
 import { DataService } from '../modules/core/service/data.service';
-import { loadPokemonPage, loadPokemonPageDone, loadAllPokemons } from './pokemon.actions';
 import { AContextState, APokemonState } from '.';
+import { PokemonResponse } from '../models/pokemon.model';
+import { showErrorAction } from './error.actions';
+import { loadPokemonPage, loadPokemonPageDone, loadAllPokemons } from './pokemon.actions';
 import { selectContext } from './context.selectors';
 import { selectPokemonByOffset } from './pokemon.selectors';
-import { PokemonResponse } from '../models/pokemon.model';
+import { Log } from '../modules/core/decorators/app-decorators';
 
 @Injectable()
+@Log()
 export class APokemonEffects {
     constructor(private actions$: Actions, private svc: DataService, private store: Store<AContextState | APokemonState>) {}
 
@@ -23,7 +26,10 @@ export class APokemonEffects {
                     map((resp: PokemonResponse) => {
                         return loadPokemonPageDone({ offset: 0, data: resp });
                     }),
-                    catchError((err) => of(err))
+                    catchError((err) => {
+                        console.log(`[   effect ][ error ] loadAllPokemons`, err);
+                        return of(showErrorAction({ message: err.error.message }));
+                    })
                 );
             })
         )

@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Log } from '../decorators/app-decorators';
 
 @Injectable({
     providedIn: 'root',
 })
+@Log()
 export class DataService {
     constructor(private http: HttpClient) {}
 

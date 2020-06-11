@@ -8,11 +8,13 @@ import { loadAllPokemons } from 'src/app/state-store/pokemon.actions';
 import { APokemonState } from 'src/app/state-store/pokemon.reducer';
 import { selectContext } from 'src/app/state-store/context.selectors';
 import { selectPokemons } from 'src/app/state-store/pokemon.selectors';
+import { Log } from '../../core/decorators/app-decorators';
 
 @Component({
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
+@Log()
 export class APokemonHomeComponent implements OnInit, OnDestroy {
     pokemons$: Observable<any>;
     pageIndex = 0;

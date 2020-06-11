@@ -3,8 +3,10 @@ import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
+import { Log } from '../modules/core/decorators/app-decorators';
 
 @Injectable()
+@Log()
 export class ARoutingEffects {
     constructor(private actions$: Actions, private store: Store<any>) {}
 

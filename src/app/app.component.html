@@ -40,7 +40,7 @@
             fixedTopGap="0"
         >
             <mat-nav-list>
-                <button mat-button>right side</button>
+                <button mat-button (click)="rightSide.toggle(); raiseError()">Raise Error</button>
             </mat-nav-list>
         </mat-sidenav>
 
