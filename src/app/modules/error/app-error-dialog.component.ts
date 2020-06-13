@@ -5,6 +5,7 @@ import { Log } from '../core/decorators/app-decorators';
 @Component({
     // selector: 'error-dialog',
     templateUrl: 'app-error-dialog.component.html',
+    styleUrls: [`./app-error-dialog.component.scss`],
 })
 @Log()
 export class AppErrorDialogComponent {

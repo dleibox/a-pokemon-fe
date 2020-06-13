@@ -1,6 +1,10 @@
+import { environment } from 'src/environments/environment';
+
 export function Log(): ClassDecorator {
     return function (target: any) {
-        console.log(`%c= ${target.name} =`, 'color: skyblue');
+        if (!environment.production) {
+            console.log(`%c= ${target.name} =`, 'color: skyblue');
+        }
 
         Object.getOwnPropertyNames(target.prototype).forEach((n) => {
             const fn = target.prototype[n];

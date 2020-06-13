@@ -1,9 +1,12 @@
 <div>
-    <mat-error>
-        <h1 mat-dialog-title>ERROR</h1>
-    </mat-error>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+    <h1 mat-dialog-title>
+        <mat-error>ERROR</mat-error>
+    </h1>
     <div mat-dialog-title>{{ this.data.message }}</div>
-    <div mat-dialog-actions align="center">
+    <!-- <div mat-dialog-actions align="center">
         <button mat-button mat-dialog-close>Close</button>
-    </div>
+    </div> -->
 </div>

@@ -1,12 +1,19 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { ASharedModule } from './modules/shared/shared.module';
+import { contextReducer, errorReducer } from './state-store';
 
+import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NoopAnimationsModule,
+        StoreModule.forRoot({ context: contextReducer, error: errorReducer }),
+        ASharedModule,
       ],
       declarations: [
         AppComponent
@@ -20,16 +27,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'a-pokemon-fe'`, () => {
+  it(`should have as title 'Pokémon'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('a-pokemon-fe');
+    expect(app.title).toEqual('Pokémon');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('a-pokemon-fe app is running!');
+    expect(compiled.querySelector('h1.a-app-name').textContent).toContain('Pokémon');
   });
 });
