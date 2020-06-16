@@ -21,7 +21,7 @@
                 </mat-card-title>
             </mat-card-header>
             <div class="a-card-img">
-                <img mat-card-image [attr.src]="p.url | toimage" alt="" />
+                <a mat-button routerLink="{{ p.name }}"><img mat-card-image [attr.src]="p.url | toimage" alt="" /></a>
             </div>
             <!-- <mat-card-content>
                 <p></p>
