@@ -10,7 +10,7 @@ import { Log } from '../core/decorators/app-decorators';
 })
 @Log()
 export class AppErrorModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<AppErrorModule> {
         return {
             ngModule: AppErrorModule,
             providers: [AppErrorService],

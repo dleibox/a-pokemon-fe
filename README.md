@@ -2,13 +2,13 @@
 
 [Demo](http://pokemon.dlei.ca)
 
-This is a demo application for Pokémon game. It’s using Angular 9, Angular Material, NgRx/Redux. All data come from https://pokeapi.co/.
+This is a demo application for Pokémon game. It’s using Angular 10, Angular Material, NgRx/Redux. All data come from https://pokeapi.co/.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
 ## What's included:
 
-- Angular 9+ & Typescript
+- Angular 10+ & Typescript
 - Angular Material & SCSS
 - NgRx (State, Action, Reducer, Effect, Entity Adapter, Selector)
 - Responsive layout
