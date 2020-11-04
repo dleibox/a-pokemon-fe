@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    pokeApi: 'http://pokeapi.dlei.ca/api/v1', // 'https://pokeapi.co/api/v2',
+    appConfig: '/assets/config/app-config.json'
 };
 
 /*

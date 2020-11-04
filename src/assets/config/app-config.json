@@ -1,0 +1,4 @@
+{
+    "production": true,
+    "pokemonApiUrl": "http://pokeapi.dlei.ca/api/v1"
+}
